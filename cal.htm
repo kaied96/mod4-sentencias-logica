@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Ed Cal</title>
+<meta charset="utf-8">
+
+<script type="text/javascript">
+  var num, acc = 0, op = "";
+
+  function mas()   { acc = num.value;  op = "+"; }
+  function menos() { acc = num.value;  op = "-"; }
+  function por()   { acc = num.value;  op = "*"; }
+  function para()   { acc = num.value;  op = "/"; }
+  function al()   { acc = num.value;  op = "^"; }
+
+  function cuad()   {num.value *= num.value}
+  function inv()   {num.value = (1 / num.value)}
+  function raiz()   {num.value = (Math.sqrt(num.value))}
+  function entero()   {num.value = (num.value < 0 ? Math.ceil(num.value) : Math.floor(num.value))}
+
+  function calcular() {
+    if (op === "+") {num.value = (+acc + +num.value)}
+    if (op === "-") {num.value = (+acc - +num.value)}
+    if (op === "*") {num.value = (+acc * +num.value)}
+    if (op === "/") {num.value = (+acc / +num.value)}
+    if (op === "^") {num.value = (Math.pow(+acc, +num.value))}
+  }
+
+  function inic ()   {num = document.getElementById("num");}
+  function vaciar () {num.value = "";}
+</script>
+</head>
+<body onLoad="inic()">
+  <h1>Buenos días, bienvenido a la calculadora de Ed Ochoa</h1>
+  Número:<p>
+  <input type="text" size="12" id="num" onClick="vaciar()"><p>
+  <button onClick="mas()">+</button>
+  <button onClick="menos()">-</button>
+  <button onClick="por()">*</button>
+  <button onClick="para()">/</button>
+  <button onClick="al()">x^y</button>
+  <button onClick="calcular()">=</button><p>
+  <button onClick="cuad()">x^2</button>
+  <button onClick="inv()">1/x</button>
+  <button onClick="raiz()">sqrt(x)</button>
+  <button onClick="entero()">parte_entera(x)</button>
+  </p>
+</body>
+</html>
